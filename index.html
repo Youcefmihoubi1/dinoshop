@@ -48,7 +48,7 @@
             </a>
           </div>
           <div class="w-full h-[25%] flex flex-col items-center justify-center px-2 sm:px-4">
-            <p class="text-black font-semibold text-base sm:text-lg text-center">@{{ c.name }}</p>
+            <p class="text-black font-semibold text-base sm:text-lg text-center">{{ c.name }}</p>
             <button
               @click="goTo(c.link)"
               class="bg-red-600 shadow rounded text-white px-3 py-1 sm:px-4 sm:py-2 mt-2 hover:bg-red-700 text-sm sm:text-base"
@@ -107,8 +107,8 @@
           :key="r.username"
         >
           <img src="user.png" alt="user" width="64" class="mx-auto mb-4" />
-          <p class="text-black text-base sm:text-lg font-semibold">@{{ r.username }}</p>
-          <p class="italic mt-2 text-gray-800 text-sm sm:text-base">@{{ r.comment }}</p>
+          <p class="text-black text-base sm:text-lg font-semibold">{{ r.username }}</p>
+          <p class="italic mt-2 text-gray-800 text-sm sm:text-base">{{ r.comment }}</p>
         </div>
       </div>
     </section>
@@ -138,7 +138,7 @@
       <ul class="space-y-2">
         <li><a href="#" class="hover:underline">Facebook</a></li>
         <li><a href="#" class="hover:underline">Instagram</a></li>
-        <li><a href="#" class="hover:underline">Twitter</a></li>
+        <li><a href="#" class="hover:underline">TikTok</a></li>
       </ul>
     </div>
 
