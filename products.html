@@ -44,7 +44,7 @@
             v-for="p in products.filter(p => p.ctgr === c.name)"
             :key="p.id"
             class="bg-white rounded-xl shadow-md hover:shadow-lg hover:bg-red-300 transition-all duration-300 w-full sm:w-[90%] md:w-[85%] lg:w-[80%] max-w-sm p-5 flex flex-col items-center text-center">
-          >
+          
             <!-- Product Image -->
             <div class="w-full aspect-[4/3] bg-gray-50 border rounded overflow-hidden flex items-center justify-center">
               <img :src="p.img" :alt="p.name" class="w-full h-full object-contain transition-transform duration-300 hover:scale-105"/>
