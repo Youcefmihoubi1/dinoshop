@@ -18,8 +18,8 @@
         <ul class="flex flex-wrap justify-center sm:justify-end space-x-3 text-white text-base sm:text-lg">
           <li><a href="" class="hover:text-black">Home</a></li>
           <li><a href="" class="hover:text-black">Products</a></li>
-          <li><a href="" class="hover:text-black">Contact</a></li>
-          <li><a href="" class="hover:text-black">About Us</a></li>
+          <li><a href="#contact" class="hover:text-black">Contact</a></li>
+          <li><a href="#contact" class="hover:text-black">About Us</a></li>
           <li><a href=""><img src="cart.png" alt="cart" width="26" /></a></li>
         </ul>
       </nav>
@@ -62,26 +62,40 @@
 
     <!-- Why Choose Us -->
     <section class="mt-10 px-4">
-      <h2 class="text-center text-black text-xl sm:text-2xl font-semibold">Why Choose Us</h2>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6 justify-items-center">
-        <div class="bg-gray-300 p-4 shadow rounded w-20">
-          <img src="quality.png" alt="quality" width="60" />
-        </div>
-        <div class="bg-gray-300 p-4 shadow rounded w-20">
-          <img src="offre.png" alt="offre" width="60" />
-        </div>
-        <div class="bg-gray-300 p-4 shadow rounded w-20">
-          <img src="delivery.png" alt="delivery" width="60" />
-        </div>
-        <div class="bg-gray-300 p-4 shadow rounded w-20">
-          <img src="cash.png" alt="cash" width="60" />
-        </div>
-        <p class="text-black font-semibold text-sm text-center mt-2">Quality</p>
-        <p class="text-black font-semibold text-sm text-center mt-2">Offers</p>
-        <p class="text-black font-semibold text-sm text-center mt-2">Delivery</p>
-        <p class="text-black font-semibold text-sm text-center mt-2">Cash on Delivery</p>
+  <h2 class="text-center text-black text-xl sm:text-2xl font-semibold">Why Choose Us</h2>
+  <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6 justify-items-center">
+    
+    <div class="flex flex-col items-center">
+      <div class="bg-gray-300 p-4 shadow rounded w-20 flex justify-center">
+        <img src="quality.png" alt="quality" width="60" />
       </div>
-    </section>
+      <p class="text-black font-semibold text-sm text-center mt-2">Quality</p>
+    </div>
+
+    <div class="flex flex-col items-center">
+      <div class="bg-gray-300 p-4 shadow rounded w-20 flex justify-center">
+        <img src="offre.png" alt="offre" width="60" />
+      </div>
+      <p class="text-black font-semibold text-sm text-center mt-2">Offers</p>
+    </div>
+
+    <div class="flex flex-col items-center">
+      <div class="bg-gray-300 p-4 shadow rounded w-20 flex justify-center">
+        <img src="delivery.png" alt="delivery" width="60" />
+      </div>
+      <p class="text-black font-semibold text-sm text-center mt-2">Delivery</p>
+    </div>
+
+    <div class="flex flex-col items-center">
+      <div class="bg-gray-300 p-4 shadow rounded w-20 flex justify-center">
+        <img src="cash.png" alt="cash" width="60" />
+      </div>
+      <p class="text-black font-semibold text-sm text-center mt-2">Cash on Delivery</p>
+    </div>
+
+  </div>
+</section>
+
 
     <!-- Reviews -->
     <section class="mt-10 px-4">
@@ -98,7 +112,7 @@
         </div>
       </div>
     </section>
-    <footer class="bg-red-600 text-white mt-20">
+    <footer class="bg-red-600 text-white mt-20" id="contact">
   <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
     <!-- Logo + Description -->
