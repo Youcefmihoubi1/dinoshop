@@ -1,0 +1,160 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dino Shop</title>
+  <script src="https://cdn.tailwindcss.com/"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <link rel="icon" href="icon.png'" />
+</head>
+
+<body class="bg-gray-50 min-h-screen overflow-x-hidden">
+  <div id="app" class="w-full">
+    <!-- Header -->
+    <header class="w-full bg-red-600 flex flex-col sm:flex-row justify-between items-center sticky top-0 shadow px-4 sm:px-6 py-4 z-50">
+      <h1 class="text-white font-semibold text-xl sm:text-2xl">Dino Shop</h1>
+      <nav class="mt-4 sm:mt-0">
+        <ul class="flex flex-wrap justify-center sm:justify-end space-x-3 text-white text-base sm:text-lg">
+          <li><a href="" class="hover:text-black">Home</a></li>
+          <li><a href="" class="hover:text-black">Products</a></li>
+          <li><a href="#contact" class="hover:text-black">Contact</a></li>
+          <li><a href="#contact" class="hover:text-black">About Us</a></li>
+          <li><a href=""><img src="cart.png" alt="cart" width="26" /></a></li>
+        </ul>
+      </nav>
+    </header>
+
+  <div id="app">
+    <!-- Hero Section -->
+    <section>
+      <div class="bg-gray-300 text-black w-full px-4 sm:px-8 py-20 sm:py-40 text-center">
+        <h2 class="text-3xl sm:text-6xl font-semibold">Products</h2>
+      </div>
+    </section>
+
+    <!-- Product Categories -->
+    <section class="max-w-7xl mx-auto px-4 py-12">
+      <div v-for="c in categories" :key="c.id" class="mb-16 pt-10 border-t border-gray-200">
+        <!-- Category Title -->
+        <h2 class="text-black text-center text-2xl sm:text-3xl font-bold mb-8">{{ c.name }}</h2>
+
+        <!-- Product Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+          <div
+            v-for="p in products.filter(p => p.ctgr === c.name)"
+            :key="p.id"
+            class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 w-full max-w-sm p-5 flex flex-col items-center text-center"
+          >
+            <!-- Product Image -->
+            <div class="w-full aspect-[4/3] bg-gray-50 border rounded overflow-hidden flex items-center justify-center">
+              <img :src="p.img" :alt="p.name" class="w-full h-full object-contain transition-transform duration-300 hover:scale-105"/>
+            </div>
+
+            <!-- Product Info -->
+            <p class="mt-4 text-lg font-semibold text-gray-900">{{ p.name }}</p>
+            <p class="text-rose-600 font-bold text-md mt-1">{{ p.price }} DA</p>
+
+            <!-- Buy Button -->
+            <button
+              @click="goTo(p.link)"
+              class="mt-4 bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded shadow transition w-full"
+            >
+              Buy
+            </button>
+          </div>
+        </div>
+
+        <!-- View More Button -->
+        <div class="flex justify-center mt-8">
+          <button
+            class="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-2 rounded shadow transition"
+          >
+            View More
+          </button>
+        </div>
+      </div>
+    </section>
+    <footer class="bg-red-600 text-white mt-20" id="contact">
+  <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+    <!-- Logo + Description -->
+    <div>
+      <h2 class="text-2xl font-bold mb-4">Dino Shop</h2>
+      <p>Stylish. Affordable. Fast Delivery.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div>
+      <h3 class="text-xl font-semibold mb-3">Quick Links</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:underline">Home</a></li>
+        <li><a href="#" class="hover:underline">Products</a></li>
+        <li><a href="#" class="hover:underline">Contact</a></li>
+        <li><a href="#" class="hover:underline">About Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Social Media -->
+    <div>
+      <h3 class="text-xl font-semibold mb-3">Follow Us</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:underline">Facebook</a></li>
+        <li><a href="#" class="hover:underline">Instagram</a></li>
+        <li><a href="#" class="hover:underline">TikTok</a></li>
+      </ul>
+    </div>
+
+    <!-- Newsletter or Contact -->
+    <div>
+      <h3 class="text-xl font-semibold mb-3">Contact</h3>
+      <p>Email: support@dinoshop.com</p>
+      <p>Phone: +213 550 000 000</p>
+    </div>
+  </div>
+
+  <div class="text-center py-4 bg-red-700 text-sm">
+    <p>&copy; <a href="https://github.com/youcefmihoubi1" target="_blank">Youcef Mihoubi</a> 2025. All rights reserved.</p>
+
+  </div>
+</footer>
+  </div>
+</body>
+   <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          categories: [
+            { id: 1, name: "Pants" },
+            { id: 2, name: "T-Shirts" },
+            { id: 3, name: "Sneakers" },
+            { id: 4, name: "Jackets" }
+          ],
+          products: [
+            { id: 1, name: "Pants 1", price: 4500, ctgr: "Pants", img: "pants1.jpeg", link: "https://google.com" },
+            { id: 2, name: "Pants 2", price: 3000, ctgr: "Pants", img: "pants2.jpeg", link: "https://google.com" },
+            { id: 3, name: "Pants 3", price: 5000, ctgr: "Pants", img: "pants3.jpeg", link: "https://google.com" },
+
+            { id: 4, name: "T-shirt 1", price: 2500, ctgr: "T-Shirts", img: "tshirt1.jpg", link: "https://google.com" },
+            { id: 5, name: "T-shirt 2", price: 2000, ctgr: "T-Shirts", img: "tshirt2.jpeg", link: "https://google.com" },
+            { id: 6, name: "T-shirt 3", price: 1500, ctgr: "T-Shirts", img: "tshirt3.jpeg", link: "https://google.com" },
+
+            { id: 7, name: "Jacket 1", price: 2500, ctgr: "Jackets", img: "10.jpeg", link: "https://google.com" },
+            { id: 8, name: "Jacket 2", price: 2000, ctgr: "Jackets", img: "11.jpeg", link: "https://google.com" },
+            { id: 9, name: "Jacket 3", price: 1500, ctgr: "Jackets", img: "12.jpeg", link: "https://google.com" },
+
+            { id: 10, name: "Sneaker 1", price: 6500, ctgr: "Sneakers", img: "sn1.jpeg", link: "https://google.com" },
+            { id: 11, name: "Sneaker 2", price: 7500, ctgr: "Sneakers", img: "sn2.jpg", link: "https://google.com" },
+            { id: 12, name: "Sneaker 3", price: 8000, ctgr: "Sneakers", img: "sn3.jpeg", link: "https://google.com" }
+          ]
+        };
+      },
+      methods: {
+        goTo(link) {
+          if (link) window.open(link, "_blank");
+        }
+      }
+    });
+
+    app.mount("#app");
+  </script>
+</html>
