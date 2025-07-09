@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dino Shop</title>
+  <script src="https://cdn.tailwindcss.com/"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <link rel="icon" href="{{ asset('images/icon.png') }}" />
+</head>
+
+<body class="bg-gray-50 min-h-screen overflow-x-hidden">
+  <div id="app" class="w-full">
+    <!-- Header -->
+    <header class="w-full bg-red-600 flex flex-col sm:flex-row justify-between items-center sticky top-0 shadow px-4 sm:px-6 py-4 z-50">
+      <h1 class="text-white font-semibold text-xl sm:text-2xl">Dino Shop</h1>
+      <nav class="mt-4 sm:mt-0">
+        <ul class="flex flex-wrap justify-center sm:justify-end space-x-3 text-white text-base sm:text-lg">
+          <li><a href="" class="hover:text-black">Home</a></li>
+          <li><a href="" class="hover:text-black">Products</a></li>
+          <li><a href="" class="hover:text-black">Contact</a></li>
+          <li><a href="" class="hover:text-black">About Us</a></li>
+          <li><a href=""><img src="{{ asset('images/cart.png') }}" alt="cart" width="26" /></a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="bg-gray-300 text-black w-full px-4 sm:px-8 py-20 sm:py-40 text-center">
+      <h2 class="text-xl sm:text-2xl font-semibold">Everyone’s Obsessed – Grab Our Top Picks Now!</h2>
+      <p class="mt-4 text-sm sm:text-base">Everyone’s loving these styles – shop Dino Shop’s top picks before they’re gone!</p>
+      <button class="bg-red-600 shadow rounded text-white px-4 py-2 mt-8 hover:bg-red-700">Shop Now</button>
+    </div>
+
+    <!-- Categories -->
+    <section class="mt-10 px-4">
+      <h2 class="text-center text-black text-xl sm:text-2xl font-semibold">Shop By Categories</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+        <div
+          v-for="c in categories"
+          :key="c.name"
+          class="bg-gray-300 rounded-md shadow flex flex-col items-center overflow-hidden hover:bg-red-300"
+          style="height: 700px; max-width: 100% ;"
+        >
+          <div class="w-full h-[75%]">
+            <a :href="c.link" target="_blank" class="block w-full h-full">
+              <img :src="c.img" alt="" class="w-full h-full object-cover p-1" />
+            </a>
+          </div>
+          <div class="w-full h-[25%] flex flex-col items-center justify-center px-2 sm:px-4">
+            <p class="text-black font-semibold text-base sm:text-lg text-center">@{{ c.name }}</p>
+            <button
+              @click="goTo(c.link)"
+              class="bg-red-600 shadow rounded text-white px-3 py-1 sm:px-4 sm:py-2 mt-2 hover:bg-red-700 text-sm sm:text-base"
+            >
+              View More
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="mt-10 px-4">
+      <h2 class="text-center text-black text-xl sm:text-2xl font-semibold">Why Choose Us</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6 justify-items-center">
+        <div class="bg-gray-300 p-4 shadow rounded w-20">
+          <img src="{{ asset('images/quality.png') }}" alt="quality" width="60" />
+        </div>
+        <div class="bg-gray-300 p-4 shadow rounded w-20">
+          <img src="{{ asset('images/offre.png') }}" alt="offre" width="60" />
+        </div>
+        <div class="bg-gray-300 p-4 shadow rounded w-20">
+          <img src="{{ asset('images/delivery.png') }}" alt="delivery" width="60" />
+        </div>
+        <div class="bg-gray-300 p-4 shadow rounded w-20">
+          <img src="{{ asset('images/cash.png') }}" alt="cash" width="60" />
+        </div>
+        <p class="text-black font-semibold text-sm text-center mt-2">Quality</p>
+        <p class="text-black font-semibold text-sm text-center mt-2">Offers</p>
+        <p class="text-black font-semibold text-sm text-center mt-2">Delivery</p>
+        <p class="text-black font-semibold text-sm text-center mt-2">Cash on Delivery</p>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="mt-10 px-4">
+      <h2 class="text-center text-black text-xl sm:text-2xl font-semibold">What Our Customers Say</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-6 gap-6">
+        <div
+          class="bg-gray-300 p-6 shadow rounded text-center hover:bg-red-300"
+          v-for="r in reviews"
+          :key="r.username"
+        >
+          <img src="{{ asset('images/user.png') }}" alt="user" width="64" class="mx-auto mb-4" />
+          <p class="text-black text-base sm:text-lg font-semibold">@{{ r.username }}</p>
+          <p class="italic mt-2 text-gray-800 text-sm sm:text-base">@{{ r.comment }}</p>
+        </div>
+      </div>
+    </section>
+    <footer class="bg-red-600 text-white mt-20">
+  <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+    <!-- Logo + Description -->
+    <div>
+      <h2 class="text-2xl font-bold mb-4">Dino Shop</h2>
+      <p>Stylish. Affordable. Fast Delivery.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div>
+      <h3 class="text-xl font-semibold mb-3">Quick Links</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:underline">Home</a></li>
+        <li><a href="#" class="hover:underline">Products</a></li>
+        <li><a href="#" class="hover:underline">Contact</a></li>
+        <li><a href="#" class="hover:underline">About Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Social Media -->
+    <div>
+      <h3 class="text-xl font-semibold mb-3">Follow Us</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:underline">Facebook</a></li>
+        <li><a href="#" class="hover:underline">Instagram</a></li>
+        <li><a href="#" class="hover:underline">Twitter</a></li>
+      </ul>
+    </div>
+
+    <!-- Newsletter or Contact -->
+    <div>
+      <h3 class="text-xl font-semibold mb-3">Contact</h3>
+      <p>Email: support@dinoshop.com</p>
+      <p>Phone: +213 550 000 000</p>
+    </div>
+  </div>
+
+  <div class="text-center py-4 bg-red-700 text-sm">
+    <p>&copy; <a href="https://github.com/youcefmihoubi1" target="_blank">Youcef Mihoubi</a> 2025. All rights reserved.</p>
+
+  </div>
+</footer>
+
+  </div>
+
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          categories: [
+            { name: "Pants", link: "https://google.com", img: "{{ asset('images/1.png') }}" },
+            { name: "T-Shirts", link: "", img: "{{ asset('images/3.jpg') }}" },
+            { name: "Jackets", link: "", img: "{{ asset('images/8.jpeg') }}" },
+            { name: "Sneakers", link: "", img: "{{ asset('images/7.jpeg') }}" },
+          ],
+          reviews: [
+            { username: "@Youcef_mihoubi", comment: "Excellent quality and fast delivery. Highly recommended!" },
+            { username: "@Nine.kahlouch", comment: "Loved the products! Will shop again." },
+            { username: "@Amine_dz", comment: "Top-notch service and quick response." },
+          ],
+        };
+      },
+      methods: {
+        goTo(link) {
+          if (link) {
+            window.open(link, "_blank");
+          }
+        },
+      },
+    });
+    app.mount("#app");
+  </script>
+</body>
+</html>
