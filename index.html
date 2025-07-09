@@ -6,7 +6,7 @@
   <title>Dino Shop</title>
   <script src="https://cdn.tailwindcss.com/"></script>
   <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
-  <link rel="icon" href="{{ asset('images/icon.png') }}" />
+  <link rel="icon" href="icon.png'" />
 </head>
 
 <body class="bg-gray-50 min-h-screen overflow-x-hidden">
@@ -20,7 +20,7 @@
           <li><a href="" class="hover:text-black">Products</a></li>
           <li><a href="" class="hover:text-black">Contact</a></li>
           <li><a href="" class="hover:text-black">About Us</a></li>
-          <li><a href=""><img src="{{ asset('images/cart.png') }}" alt="cart" width="26" /></a></li>
+          <li><a href=""><img src="cart.png" alt="cart" width="26" /></a></li>
         </ul>
       </nav>
     </header>
@@ -65,16 +65,16 @@
       <h2 class="text-center text-black text-xl sm:text-2xl font-semibold">Why Choose Us</h2>
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6 justify-items-center">
         <div class="bg-gray-300 p-4 shadow rounded w-20">
-          <img src="{{ asset('images/quality.png') }}" alt="quality" width="60" />
+          <img src="quality.png" alt="quality" width="60" />
         </div>
         <div class="bg-gray-300 p-4 shadow rounded w-20">
-          <img src="{{ asset('images/offre.png') }}" alt="offre" width="60" />
+          <img src="offre.png" alt="offre" width="60" />
         </div>
         <div class="bg-gray-300 p-4 shadow rounded w-20">
           <img src="{{ asset('images/delivery.png') }}" alt="delivery" width="60" />
         </div>
         <div class="bg-gray-300 p-4 shadow rounded w-20">
-          <img src="{{ asset('images/cash.png') }}" alt="cash" width="60" />
+          <img src="cash.png" alt="cash" width="60" />
         </div>
         <p class="text-black font-semibold text-sm text-center mt-2">Quality</p>
         <p class="text-black font-semibold text-sm text-center mt-2">Offers</p>
@@ -92,7 +92,7 @@
           v-for="r in reviews"
           :key="r.username"
         >
-          <img src="{{ asset('images/user.png') }}" alt="user" width="64" class="mx-auto mb-4" />
+          <img src="user.png" alt="user" width="64" class="mx-auto mb-4" />
           <p class="text-black text-base sm:text-lg font-semibold">@{{ r.username }}</p>
           <p class="italic mt-2 text-gray-800 text-sm sm:text-base">@{{ r.comment }}</p>
         </div>
@@ -150,9 +150,9 @@
         return {
           categories: [
             { name: "Pants", link: "https://google.com", img: "{{ asset('images/1.png') }}" },
-            { name: "T-Shirts", link: "", img: "{{ asset('images/3.jpg') }}" },
-            { name: "Jackets", link: "", img: "{{ asset('images/8.jpeg') }}" },
-            { name: "Sneakers", link: "", img: "{{ asset('images/7.jpeg') }}" },
+            { name: "T-Shirts", link: "", img: "3.jpg" },
+            { name: "Jackets", link: "", img: "8.jpeg" },
+            { name: "Sneakers", link: "", img: "7.jpeg" },
           ],
           reviews: [
             { username: "@Youcef_mihoubi", comment: "Excellent quality and fast delivery. Highly recommended!" },
